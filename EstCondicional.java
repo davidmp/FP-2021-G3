@@ -23,7 +23,27 @@ class EstCondicional{
     }
   }
 
+  static void ejercicio02(){
+    //declarar variables
+    int cantidadX;
+    double montoP;
+    //Datos de Entrada
+    System.out.println("Ingrese la cantidad de personas invitadas:");
+    cantidadX=teclado.nextInt();
+    //Proceso
+    if(cantidadX<=200){
+      montoP=cantidadX*95;
+    }else if(cantidadX>200 && cantidadX<=300){
+      montoP=cantidadX*85;
+    }else{
+      montoP=cantidadX*75;
+    }
+    //Datos de salida
+    System.out.println("El monto a pagar es:"+montoP);
+  }
+
   public static void main(String[] arg){
-   ejercicio01();
+   //ejercicio01();
+   ejercicio02();
   }
 }
