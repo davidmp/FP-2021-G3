@@ -90,7 +90,7 @@ class EstCondicional{
     System.out.println("Ingrese la nota de AB:");
     notaAB=teclado.nextDouble();   
     //Proceso
-    switch(areaCarrera){
+    switch(areaCarrera.toUpperCase()){
       case "B":{
         notaFinal=(notaEP*0.40)+(notaRM*0.10)+(notaRV*0.20)+(notaAB*0.30);
         areaCarrera="Biomedicas";
