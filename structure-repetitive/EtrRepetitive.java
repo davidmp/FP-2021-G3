@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 /**
  * EtrRepetitive
@@ -19,7 +20,6 @@ public class EtrRepetitive {
         }
         System.out.println("La suma de los 10 numeros es:"+sumaNumeros);
     }
-
     public static void suma10NumerosHacerMientras() {
         //Daclarar Variables
         int contador=1;
