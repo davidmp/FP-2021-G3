@@ -53,6 +53,7 @@ public class EtrRepetitive {
         "\n2=suma10NumerosHacerMientras"+
         "\n3=suma10NumerosPara"+
         "\n4=suma10NumerosMientras"+
+        "\n5=numeros pares hasta 100"+
         "\n0=Salir del Programa"
         ;
         System.out.println(mensaje);
@@ -60,16 +61,21 @@ public class EtrRepetitive {
         do {                        
             switch (opcionAlg) {
                 case 1:suma10NumerosMientras();break;
-                case 2:suma10NumerosHacerMientras();;break;
+                case 2:suma10NumerosHacerMientras();break;
                 case 3:suma10NumerosPara();break;
                 case 4:suma10NumerosMientras();break;
+                case 5:numerosPares();break;
                 default: System.out.println("Opcion no existe!"); break;    
             } 
             System.out.println("Desea seguir probando algoritmos?:"+mensaje);           
             opcionAlg=teclado.nextInt();
         } while (opcionAlg!=0);        
     }
-
+    public static void numerosPares(){
+        for (int numero = 0; numero < 100; numero++) {
+            if (numero%2==0) System.out.println("El numero "+ numero+" es par");
+        }
+    }
 
     public static void main(String[] args) {
         menuMain();
