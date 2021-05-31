@@ -1,9 +1,11 @@
 package pe.edu.upeu;
 
-import java.util.Scanner;
+
+import pe.edu.upeu.util.Teclado;
 
 public class SubProgramas {
-  Scanner objTec=new Scanner(System.in);//objeto
+  //Scanner objTec=new Scanner(System.in);//objeto
+  Teclado objTec=new Teclado();
 
 
 
@@ -23,10 +25,8 @@ public class SubProgramas {
   }
 
   public void senoX() {
-    System.out.println("Ingrese el angulo X:");  
-    double x=objTec.nextInt();
-    System.out.println("Ingrese el limite de la funcion:");  
-    int fxl=objTec.nextInt();    
+    double x=objTec.leer(0.0, "Ingrese el angulo X:");
+    int fxl=objTec.leer(0, "Ingrese el limite de la funcion:");    
     double resultadoFx=0; 
     int contador=0;
     for (int i = 1; i < fxl; i+=2) {
@@ -43,11 +43,9 @@ public class SubProgramas {
   }
 
 
-  public void funcionExponencial() {
-    System.out.println("Ingrese un numero X:");  
-    double x=objTec.nextInt();
-    System.out.println("Ingrese el limite de la funcion:");  
-    int fxl=objTec.nextInt();    
+  public void funcionExponencial() {    
+    double x=objTec.leer(0.0, "Ingrese un numero X:");    
+    int fxl=objTec.leer(0, "Ingrese el limite de la funcion:");
     double resultadoFx=0;
     for (int fl = 0; fl < fxl; fl++) {
         resultadoFx=resultadoFx+(potencia(x,fl)/factorial(fl));
@@ -56,11 +54,9 @@ public class SubProgramas {
     System.out.println("La fun exponcial es :"+resultadoFx);
   }
 
-  public void matIntCompuesto() {
-    System.out.println("Ingrese el Capital:");  
-    double P=objTec.nextDouble();   
-    System.out.println("Ingrese el Periodo en Anhos:");  
-    int periodo=objTec.nextInt();    
+  public void matIntCompuesto() {    
+    double P=objTec.leer(0.0, "Ingrese el Capital:");     
+    int periodo=objTec.leer(0, "Ingrese el Periodo en Anhos:");  
     double capitalfinal=0;
     for (int n = 1; n <= periodo; n++) {
       capitalfinal+=Math.round(P*potencia((1+0.15),n));  
