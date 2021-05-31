@@ -16,7 +16,7 @@ public class App {
         EjemplosRecursivos objER=new EjemplosRecursivos();
 
         int numero=tc.leer(0, "Ingrese un numero:");
-        System.out.println("Facorial iterativo:"+objER.factorial(numero));
-        System.out.println("Facorial Recursivo:"+objER.factorialRecur(numero));
+        //System.out.println("Facorial iterativo:"+objER.factorialBig(numero));
+        System.out.println("Facorial Recursivo:"+objER.factorialRecurBig(numero));
     }
 }
