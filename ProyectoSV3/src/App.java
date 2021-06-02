@@ -18,8 +18,33 @@ public class App {
         int numero=tc.leer(0, "Ingrese un numero:");
         /*System.out.println("Facorial iterativo:"+objER.factorialBig(numero));
         System.out.println("Facorial Recursivo:"+objER.factorialRecurBig(numero));*/
+        long ti=System.currentTimeMillis();
+        System.out.println("Fibonaci iterativo:"+objER.fibonacciBig(numero));
+        long tf=System.currentTimeMillis();
+        System.out.println("Timepo Iterativo: "+(tf-ti));
 
-        System.out.println("Fibonaci iterativo:"+objER.fibonacci(numero));
+        ti=System.currentTimeMillis();
+        System.out.println("Fibonaci x:"+objER.fibonacciXBig(numero));
+        tf=System.currentTimeMillis();
+        System.out.println("Timepo x: "+(tf-ti)); 
+
+
+        ti=System.currentTimeMillis();
+        System.out.println("Factorial Iteratico:"+objER.factorialBig(numero));
+        tf=System.currentTimeMillis();
+        System.out.println("Factorial Iteratico: "+(tf-ti));         
+
+        ti=System.currentTimeMillis();
+        System.out.println("Factorial Recursivo:"+objER.factorialRecurBig(numero));
+        tf=System.currentTimeMillis();
+        System.out.println("Factorial Recursivo: "+(tf-ti));         
+
+       /* ti=System.currentTimeMillis();
         System.out.println("Fibonaci recursivo:"+objER.fibonacciRecur(numero));
+        tf=System.currentTimeMillis();
+        System.out.println("Timepo recursivo: "+(tf-ti));*/
+
+       
     }
+
 }
