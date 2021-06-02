@@ -16,7 +16,10 @@ public class App {
         EjemplosRecursivos objER=new EjemplosRecursivos();
 
         int numero=tc.leer(0, "Ingrese un numero:");
-        //System.out.println("Facorial iterativo:"+objER.factorialBig(numero));
-        System.out.println("Facorial Recursivo:"+objER.factorialRecurBig(numero));
+        /*System.out.println("Facorial iterativo:"+objER.factorialBig(numero));
+        System.out.println("Facorial Recursivo:"+objER.factorialRecurBig(numero));*/
+
+        System.out.println("Fibonaci iterativo:"+objER.fibonacci(numero));
+        System.out.println("Fibonaci recursivo:"+objER.fibonacciRecur(numero));
     }
 }
