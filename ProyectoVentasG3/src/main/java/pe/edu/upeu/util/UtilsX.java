@@ -1,9 +1,6 @@
-
 package pe.edu.upeu.util;
 
 import java.net.URL;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 public class UtilsX {
     public int fibonaciRecur(final int numero) {
@@ -16,9 +13,7 @@ public class UtilsX {
     public URL getFile(String ruta){
     return this.getClass().getResource("/"+ruta);
     }
-
     public TableModel reporData() {
-
-          return null;     
-    }    
+    return null;
+    }
 }
