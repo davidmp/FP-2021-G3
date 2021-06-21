@@ -38,10 +38,27 @@ public class EjemploVectores {
         }
     }
 
+    public static void invertirVector() {
+        int[] a={1,2,3,4,5}; //vector invertido b =  {5,4,3,2,1}.
+        int[] b=new int[a.length];
+        
+        for (int i = 0; i < b.length; i++) {
+            b[i]=a[(b.length-1)-i];    
+        }
+        for (int i = 0; i < b.length; i++) {
+            System.out.println("b["+i+"]"+b[i]);
+        }
+
+    }
+
+
     public static void main(String[] args) {
         conceptosVectores();
 
-        tablaMultiplicar();
+        //tablaMultiplicar();
+        System.out.println("Invertir vector:");
+        invertirVector();
+        
     }
     
 }
