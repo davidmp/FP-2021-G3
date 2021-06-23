@@ -1,5 +1,7 @@
 package pe.edu.upeu.arreglos;
 
+import pe.edu.upeu.util.LeerTeclado;
+
 public class EjemploMatrices {
     
 
@@ -85,6 +87,17 @@ public class EjemploMatrices {
 
     }
 
+public void mostrarElementoSegunIndices(int iF, int iC) {
+    int[][] matriz={
+        {5,	6,	6},
+        {5,	6,	2},
+        {5,	12,	2},
+        {5,	6,	2}
+    };
+    imprimirMatriz(matriz);
+    System.out.println("El valor en esos indices M("+iF+","+iC+
+    ") corresponde a: "+matriz[iF][iC]);
+}    
 
 
     public static void main(String[] args) {
@@ -109,6 +122,11 @@ public class EjemploMatrices {
             {4,3}
         };
         emx.sumaMatrices(mA, mB);
+        System.out.println("-----Leer elementos segun indice definido------");
+        LeerTeclado leer=new LeerTeclado();
+        emx.mostrarElementoSegunIndices(leer.leer(0,"Ingrese indice de Fila:"), 
+        leer.leer(0,"Ingrese indice de Fila:"));
+
     }
 
 }
