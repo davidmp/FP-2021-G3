@@ -51,13 +51,31 @@ public class EjemploVectores {
 
     }
 
+    public static void contarElementosVecCerosPosNeg(int[] vector) {
+        int cantCeros=0, cantPost=0, cantNeg=0;
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i]<0) {
+                cantNeg++;
+            }else if(vector[i]==0){
+                cantCeros++;
+            }else{
+                cantPost++;
+            }
+        }
+        System.out.println("Elementos con valor cero son:"+cantCeros);
+        System.out.println("Elementos con valores positivos es:"+cantPost);
+        System.out.println("Elementos con valores Negaticos es:"+cantNeg);
+    }
+
 
     public static void main(String[] args) {
         conceptosVectores();
-
         //tablaMultiplicar();
         System.out.println("Invertir vector:");
         invertirVector();
+        System.out.println("");
+        int[] vA={1,2,3,4,5,6,7,8,9,10,-5,2,0,-7,3,0};
+        contarElementosVecCerosPosNeg(vA);
         
     }
     
