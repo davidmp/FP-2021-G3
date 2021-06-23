@@ -45,7 +45,7 @@ public class EjemploMatrices {
     public void imprimirMatriz(Object[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j]+"\t");
+                System.out.print(matriz[i][j]+"\t\t");
             }
             System.out.println("");
         }
@@ -66,9 +66,25 @@ public class EjemploMatrices {
             {"P0002","Pera",	4.6,	20},
             {"P0003","Naranja",	2,	2}
             };
-
         imprimirMatriz(matrizO);
     }
+
+    public void sumaMatrices(double[][] mA, double[][] mB) {
+        double[][] sumM;
+        if (mA.length==mB.length && mA[0].length==mB[0].length) {
+            sumM=new double[mA.length][mA[0].length];
+            for (int i = 0; i < sumM.length; i++) {
+                for (int j = 0; j < sumM.length; j++) {
+                    sumM[i][j]=mA[i][j]+mB[i][j];
+                }
+            }
+            imprimirMatriz(sumM);
+        }else{
+            System.out.println("Las matrices son de distintas dimensiones");
+        }
+
+    }
+
 
 
     public static void main(String[] args) {
@@ -83,6 +99,16 @@ public class EjemploMatrices {
         };
         emx.imprimirMatriz(matriz);
         emx.matricesTiposDatos();
+        System.out.println("-----Suma matrices------");
+        double[][] mA={
+            {4,5},
+            {7,3}
+        };
+        double[][] mB={
+            {4,3},
+            {4,3}
+        };
+        emx.sumaMatrices(mA, mB);
     }
 
 }
