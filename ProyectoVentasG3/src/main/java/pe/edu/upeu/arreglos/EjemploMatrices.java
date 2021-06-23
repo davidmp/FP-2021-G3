@@ -127,6 +127,13 @@ public void mostrarElementoSegunIndices(int iF, int iC) {
         emx.mostrarElementoSegunIndices(leer.leer(0,"Ingrese indice de Fila:"), 
         leer.leer(0,"Ingrese indice de Fila:"));
 
+        int[][] matrizT={
+            {5,	6,	0},
+            {5,	-6,	2},
+            {0,	12,	-2},
+            {0,	6,	2}
+        };
+
     }
 
 }
