@@ -33,6 +33,42 @@ public class EjemploMatrices {
             System.out.println("");
         }
     }
+    public void imprimirMatriz(double[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j]+"\t");
+            }
+            System.out.println("");
+        }
+    }
+
+    public void imprimirMatriz(Object[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j]+"\t");
+            }
+            System.out.println("");
+        }
+    }    
+
+    public void matricesTiposDatos() {
+        System.out.println("");
+        int[][] matriz={
+            {5,	6,	6},
+            {5,	6,	2}};
+            imprimirMatriz(matriz);
+        System.out.println("");
+        double[][] matrizX={{2.5,6,4.5},{5,6,2.4}};
+        imprimirMatriz(matrizX);
+        System.out.println("");
+        Object[][] matrizO={
+            {"P0001","Manzana",	3.5,	50},
+            {"P0002","Pera",	4.6,	20},
+            {"P0003","Naranja",	2,	2}
+            };
+
+        imprimirMatriz(matrizO);
+    }
 
 
     public static void main(String[] args) {
@@ -46,6 +82,7 @@ public class EjemploMatrices {
             {5,	6,	2}
         };
         emx.imprimirMatriz(matriz);
+        emx.matricesTiposDatos();
     }
 
 }
