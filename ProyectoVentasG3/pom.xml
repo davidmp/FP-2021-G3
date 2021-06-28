@@ -42,7 +42,7 @@
     <configuration>
     <archive>
     <manifest>
-    <mainClass>pe.edu.upeu.arreglos.EjemploMatrices</mainClass>
+    <mainClass>pe.edu.upeu.arreglos.Transformadas</mainClass>
     </manifest>
     </archive>
     </configuration>
