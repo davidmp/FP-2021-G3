@@ -68,7 +68,7 @@ public class EjemploMatrices {
             {"P0002","Pera",	4.6,	20},
             {"P0003","Naranja",	2,	2}
             };
-        imprimirMatriz(matrizO);
+            imprimirMatriz(matriz);
     }
 
     public void sumaMatrices(double[][] mA, double[][] mB) {
