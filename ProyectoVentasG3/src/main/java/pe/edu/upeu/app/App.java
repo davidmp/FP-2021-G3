@@ -1,5 +1,6 @@
 package pe.edu.upeu.app;
 
+import pe.edu.upeu.dao.CategoriaDao;
 import pe.edu.upeu.gui.*;
 import pe.edu.upeu.modelo.CategoriaTO;
 import pe.edu.upeu.modelo.ProductoTO;
@@ -24,8 +25,12 @@ public class App {
     public static void main( String[] args ){
         System.out.println( "Hello World!" );
         LeerTeclado lt=new LeerTeclado();
+        CategoriaDao daoCat=new CategoriaDao();
+        daoCat.registrarCategoria();
+        daoCat.reportarCategoria();
 
-        CategoriaTO categx=new CategoriaTO();        
+
+       /* CategoriaTO categx=new CategoriaTO();        
         categx.setIdCateg(lt.leer("", "Ingrese Id categoria: "));
         categx.setNombre(lt.leer("", "Ingrese nombre:"));
         registrarCategoria(categx);
@@ -36,6 +41,6 @@ public class App {
         prodx.setNombre(lt.leer("", "Ingrese nombre:"));
         registrarProducto(prodx);        
 
-        new MainGUI();
+        new MainGUI();*/
     }
 }

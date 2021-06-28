@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter @Setter
 public class ProductoTO {    
 public String IdProducto, nombre, idCateg, unidaMed;
-public double precioUnit;
+public double precioUnit, porcentUtil, stock;
 
 }
