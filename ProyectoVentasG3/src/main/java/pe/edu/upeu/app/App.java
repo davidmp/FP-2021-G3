@@ -5,6 +5,7 @@ import pe.edu.upeu.gui.*;
 import pe.edu.upeu.modelo.CategoriaTO;
 import pe.edu.upeu.modelo.ProductoTO;
 import pe.edu.upeu.util.LeerTeclado;
+import pe.edu.upeu.util.UtilsX;
 /**
  * Hello world!
  *
@@ -33,21 +34,29 @@ public class App {
         "\n0=Salir del Programa"
         ;
         CategoriaDao daoCat;
-        System.out.println(mensaje);
+        UtilsX ut=new UtilsX();
         LeerTeclado lt=new LeerTeclado();
         opcionAlg=lt.leer(0, mensaje);
         do {                        
             switch (opcionAlg) {
-                case 1: daoCat=new CategoriaDao(); daoCat.registrarCategoria(); break;
-                case 12: daoCat=new CategoriaDao(); daoCat.reportarCategoria(); break;
+                case 1: daoCat=new CategoriaDao(); 
+                daoCat.registrarCategoria(); break;
+                case 12: ut.clearConsole(); daoCat=new CategoriaDao(); 
+                daoCat.reportarCategoria(); break;
                 case 2:break;
                 case 3:break;
                 case 4:;break;
                 case 5:break;
                 default: System.out.println("Opcion no existe!"); break;    
-            } 
-            System.out.println("Desea seguir probando algoritmos?:"+mensaje);           
-            opcionAlg=lt.leer(0, mensaje);
+            }             
+            if (opcionAlg!=0) {  
+                String dato=lt.leer("", "Desea seguir probando algoritmos?: SI/NO");              
+                if(dato.toUpperCase().equals("SI")){
+                    opcionAlg=lt.leer(0, mensaje);      
+                }else{
+                    opcionAlg=0;
+                }                
+            }
         } while (opcionAlg!=0);        
     }    
     public static void main( String[] args ){
