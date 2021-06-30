@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter @Setter
 public class ProductoTO {    
-public String IdProducto, nombre, idCateg, unidaMed;
+public String idProducto, nombre, idCateg, unidaMed;
 public double precioUnit, porcentUtil, stock;
 
 }
