@@ -44,5 +44,20 @@ public class ProductoDao extends AppCrud{
         lar=new LeerArchivo("Producto.txt");
         imprimirLista(listarContenido(lar));
     }
+    public void reporteProductosT() {
+        lar=new LeerArchivo("Producto.txt");
+        Object[][] data=listarContenido(lar);
+	    ut.pintarLine('H', 31);
+        ut.pintarTextHeadBody('H', 2, "ID,Nombre,IdCateg,U.Medida,P.Unit,Porc.Util,Stock");
+        System.out.println("");
+        ut.pintarLine('H', 31);
+        String dataB="";
+        for (int i = 0; i < data.length; i++) {
+            dataB=data[i][0]+","+data[i][1]+","+data[i][2]+","+data[i][3]+
+            ","+data[i][4]+","+data[i][5]+","+data[i][6];
+            ut.pintarTextHeadBody('B', 2, dataB);            
+        }        
+    }
+
         
 }

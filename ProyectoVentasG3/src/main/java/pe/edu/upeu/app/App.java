@@ -51,7 +51,7 @@ public class App {
                 case 12: ut.clearConsole(); daoCat=new CategoriaDao(); 
                 daoCat.reportarCategoria(); break;
                 case 2: proDao=new ProductoDao(); proDao.registrarProducto(); break;
-                case 21: proDao=new ProductoDao(); proDao.reporteProductos(); break;
+                case 21: proDao=new ProductoDao(); proDao.reporteProductosT(); break;
                 case 3:uDao=new UsuarioDao(); uDao.registarUsuario(); break;
                 case 4:;break;
                 case 5:break;
