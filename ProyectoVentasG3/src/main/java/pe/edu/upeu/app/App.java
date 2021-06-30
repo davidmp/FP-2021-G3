@@ -32,6 +32,7 @@ public class App {
         "\n1=Registro Categoria"+
         "\n12=Reporte Categoria"+
         "\n2=Registro Producto"+
+        "\n21=Reporte Producto"+
         "\n3=Registro Usuario"+
         "\n4=Registro de Ventas"+
         "\n5=Reportes"+
