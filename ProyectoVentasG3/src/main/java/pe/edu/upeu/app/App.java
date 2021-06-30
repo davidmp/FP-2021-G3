@@ -21,26 +21,36 @@ public class App {
         System.out.println("IdCategoria: "+prod.getIdCateg()+" \tnombre: "+prod.getNombre());
     }    
 
-    
-    public static void main( String[] args ){
-        System.out.println( "Hello World!" );
+    public static void menuMain() {
+        int opcionAlg=0;
+        String mensaje="Seleccione el algortimo que desea probar:"+
+        "\n1=Registro Categoria"+
+        "\n12=Reporte Categoria"+
+        "\n2=Registro Producto"+
+        "\n3=Registro Usuario"+
+        "\n4=Registro de Ventas"+
+        "\n5=Reportes"+
+        "\n0=Salir del Programa"
+        ;
+        CategoriaDao daoCat;
+        System.out.println(mensaje);
         LeerTeclado lt=new LeerTeclado();
-        CategoriaDao daoCat=new CategoriaDao();
-        daoCat.registrarCategoria();
-        daoCat.reportarCategoria();
-
-
-       /* CategoriaTO categx=new CategoriaTO();        
-        categx.setIdCateg(lt.leer("", "Ingrese Id categoria: "));
-        categx.setNombre(lt.leer("", "Ingrese nombre:"));
-        registrarCategoria(categx);
-
-
-        ProductoTO prodx=new ProductoTO();        
-        prodx.setIdCateg(lt.leer("", "Ingrese Id Producto: "));
-        prodx.setNombre(lt.leer("", "Ingrese nombre:"));
-        registrarProducto(prodx);        
-
-        new MainGUI();*/
+        opcionAlg=lt.leer(0, mensaje);
+        do {                        
+            switch (opcionAlg) {
+                case 1: daoCat=new CategoriaDao(); daoCat.registrarCategoria(); break;
+                case 12: daoCat=new CategoriaDao(); daoCat.reportarCategoria(); break;
+                case 2:break;
+                case 3:break;
+                case 4:;break;
+                case 5:break;
+                default: System.out.println("Opcion no existe!"); break;    
+            } 
+            System.out.println("Desea seguir probando algoritmos?:"+mensaje);           
+            opcionAlg=lt.leer(0, mensaje);
+        } while (opcionAlg!=0);        
+    }    
+    public static void main( String[] args ){
+        menuMain();
     }
 }
