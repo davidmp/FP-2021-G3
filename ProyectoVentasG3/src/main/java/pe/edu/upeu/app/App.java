@@ -83,7 +83,7 @@ public class App {
 
 
     public static void main( String[] args ){
-        menuMain();
-        //validarAccesoSistema();
+        //menuMain();
+        validarAccesoSistema();
     }
 }
