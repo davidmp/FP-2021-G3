@@ -23,12 +23,20 @@ public class VentaDao extends AppCrud{
 
     public void registroVentaGeneral() {
         VentaTO vTO=crearVenta();
+        double precioTotalX=0;
         String continuaV="SI";
         do {
             VentaDetalleTO toVD=carritoVenta(vTO);
+
+            precioTotalX=precioTotalX+toVD.getPrecioTotal();
             
             continuaV=lte.leer("", "Desea comprar algo mas? (SI=S, NO=N):");
         } while (continuaV.charAt(0)=='S');
+        vTO.setPrecioTotal(precioTotalX);
+        vTO.setNetoTotal(precioTotalX/1.18);
+        vTO.setIgv(vTO.getNetoTotal()*0.18);
+        lar=new LeerArchivo("Venta.txt");
+        editarRegistro(lar, 0, vTO.getIdVenta(), vTO);        
     }
 
     public VentaTO crearVenta() {
@@ -46,8 +54,26 @@ public class VentaDao extends AppCrud{
     }
 
     public VentaDetalleTO carritoVenta(VentaTO vTO) {
-
-        return null;
+        
+        vdTO=new VentaDetalleTO();
+        ut.clearConsole();
+        System.out.println("*************Agregar Productos a carrito de venta********");
+        mostrarProductos();
+        vdTO.setIdProducto(lte.leer("", "Ingrese el ID del Producto:"));
+        vdTO.setIdVenta(vTO.getIdVenta());
+        lar=new LeerArchivo("VentaDetalle.txt");
+        vdTO.setIdVentaDetalle(generarId(lar, 0, "DV", 2));
+        lar=new LeerArchivo("Producto.txt");
+        Object[][] dataP=buscarContenido(lar, 0, vdTO.getIdProducto());
+        double porcentUtil=Double.parseDouble(String.valueOf(dataP[0][5]));
+        double punit=Double.parseDouble(String.valueOf(dataP[0][4]));
+        vdTO.setPorcentUtil(porcentUtil);
+        vdTO.setPrecioUnit(punit+punit*porcentUtil);
+        vdTO.setCantidad(lte.leer(0.0, "Ingrese una cantidad:"));
+        vdTO.setPrecioTotal(vdTO.getCantidad()*vdTO.getPrecioUnit());
+        lar=new LeerArchivo("VentaDetalle.txt");
+        agregarContenido(lar, vdTO);
+        return vdTO;
     }
 
     public void mostrarProductos() {

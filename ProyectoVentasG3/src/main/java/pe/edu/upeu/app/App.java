@@ -5,6 +5,7 @@ import java.io.Console;
 import pe.edu.upeu.dao.CategoriaDao;
 import pe.edu.upeu.dao.ProductoDao;
 import pe.edu.upeu.dao.UsuarioDao;
+import pe.edu.upeu.dao.VentaDao;
 import pe.edu.upeu.gui.*;
 import pe.edu.upeu.modelo.CategoriaTO;
 import pe.edu.upeu.modelo.ProductoTO;
@@ -41,6 +42,7 @@ public class App {
         CategoriaDao daoCat;
         UsuarioDao uDao;
         ProductoDao proDao;
+        VentaDao venDao;
         UtilsX ut=new UtilsX();
         LeerTeclado lt=new LeerTeclado();
         opcionAlg=lt.leer(0, mensaje);
@@ -53,7 +55,7 @@ public class App {
                 case 2: proDao=new ProductoDao(); proDao.registrarProducto(); break;
                 case 21: proDao=new ProductoDao(); proDao.reporteProductosT(); break;
                 case 3:uDao=new UsuarioDao(); uDao.registarUsuario(); break;
-                case 4:;break;
+                case 4: venDao=new VentaDao(); venDao.registroVentaGeneral();  break;
                 case 5:break;
                 default: System.out.println("Opcion no existe!"); break;    
             }             
