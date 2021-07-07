@@ -86,6 +86,60 @@ public class VentaDao extends AppCrud{
         System.out.println("");
     }
 
-    
+    public void reporteVentasPorFechas() {
+        System.out.println("***************Reporte de Ventas por fechas*******************");
+        String fechaInit=lte.leer("", "Ingrese fecha de inicio (dd-MM-yyyy):");
+        String fechaFin=lte.leer("", "Ingrese fecha de Finalizacion (dd-MM-yyyy):");
+        ut.clearConsole();
+        lar=new LeerArchivo("Venta.txt");
+
+        Object[][] dataV=listarContenido(lar);
+        int cantRegVent=0;
+        try {
+            for (int i = 0; i < dataV.length; i++) {
+                String[] fechaVent=dataV[i][2].toString().split(" ");
+                if( (fechaVent[0].toString().equals(fechaInit) || formatoFecha.parse(fechaVent[0])
+                .after(formatoFecha.parse(fechaInit)) ) && 
+                (formatoFecha.parse(fechaVent[0]).before(formatoFecha.parse(fechaFin)) 
+                || fechaVent[0].toString().equals(fechaFin) ) ){
+                    cantRegVent++;
+                }
+            }
+            Object[][] dataReal=new Object[cantRegVent][dataV[0].length];
+            int indexFilaX=0;
+            double netoTotalX=0, igvX=0, preciototalX=0;
+            for (int i = 0; i < dataV.length; i++) {
+                String[] fechaVent=dataV[i][2].toString().split(" ");
+                if( (fechaVent[0].toString().equals(fechaInit) || formatoFecha.parse(fechaVent[0])
+                .after(formatoFecha.parse(fechaInit)) ) && 
+                (formatoFecha.parse(fechaVent[0]).before(formatoFecha.parse(fechaFin)) 
+                || fechaVent[0].toString().equals(fechaFin))){
+                   for (int j = 0; j < fechaVent.length; j++) {
+                    dataReal[indexFilaX][j]=dataV[i][j];
+                    if (j==3) { netoTotalX+=Double.parseDouble(String.valueOf(dataV[i][j])); }
+                    if (j==4) { igvX+=Double.parseDouble(String.valueOf(dataV[i][j])); }
+                    if (j==5) { preciototalX+=Double.parseDouble(String.valueOf(dataV[i][j])); }
+                   }
+                   indexFilaX++;
+                }
+            }            
+
+            ut.clearConsole();
+            System.out.println("********************Reporte de ventes*************************");
+            System.out.println("*********Entre "+fechaInit+" a "+fechaFin+"  **********");
+            ut.pintarLine('H', 40);
+            ut.pintarTextHeadBody('B', 3, "ID,DNI Cli.,F.Venta,Neto S/.,IGV,P. Total S/.");
+            ut.pintarLine('H', 40);
+            System.out.println();
+            for (Object[] objects : dataReal) {
+                String datacont=objects[0]+","+objects[1]+","+
+                objects[2]+","+objects[3]+","+objects[4]+","+objects[5];
+                ut.pintarTextHeadBody('B', 3, datacont);
+            }
+            ut.pintarLine('H', 40);
+
+        } catch (Exception e) {      }
+    }
+
 
 }
