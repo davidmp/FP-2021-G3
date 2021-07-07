@@ -36,7 +36,7 @@ public class App {
         "\n21=Reporte Producto"+
         "\n3=Registro Usuario"+
         "\n4=Registro de Ventas"+
-        "\n5=Reportes"+
+        "\n5=Reporte de Ventas entre rango de fechas"+
         "\n0=Salir del Programa"
         ;
         CategoriaDao daoCat;
@@ -56,7 +56,7 @@ public class App {
                 case 21: proDao=new ProductoDao(); proDao.reporteProductosT(); break;
                 case 3:uDao=new UsuarioDao(); uDao.registarUsuario(); break;
                 case 4: venDao=new VentaDao(); venDao.registroVentaGeneral();  break;
-                case 5:break;
+                case 5: venDao=new VentaDao(); venDao.reporteVentasPorFechas();  break;
                 default: System.out.println("Opcion no existe!"); break;    
             }             
             if (opcionAlg!=0) {  

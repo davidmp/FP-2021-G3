@@ -114,7 +114,7 @@ public class VentaDao extends AppCrud{
                 .after(formatoFecha.parse(fechaInit)) ) && 
                 (formatoFecha.parse(fechaVent[0]).before(formatoFecha.parse(fechaFin)) 
                 || fechaVent[0].toString().equals(fechaFin))){
-                   for (int j = 0; j < fechaVent.length; j++) {
+                   for (int j = 0; j < dataV[0].length; j++) {
                     dataReal[indexFilaX][j]=dataV[i][j];
                     if (j==3) { netoTotalX+=Double.parseDouble(String.valueOf(dataV[i][j])); }
                     if (j==4) { igvX+=Double.parseDouble(String.valueOf(dataV[i][j])); }
@@ -129,14 +129,17 @@ public class VentaDao extends AppCrud{
             System.out.println("*********Entre "+fechaInit+" a "+fechaFin+"  **********");
             ut.pintarLine('H', 40);
             ut.pintarTextHeadBody('B', 3, "ID,DNI Cli.,F.Venta,Neto S/.,IGV,P. Total S/.");
-            ut.pintarLine('H', 40);
-            System.out.println();
+            ut.pintarLine('H', 40);            
             for (Object[] objects : dataReal) {
                 String datacont=objects[0]+","+objects[1]+","+
                 objects[2]+","+objects[3]+","+objects[4]+","+objects[5];
                 ut.pintarTextHeadBody('B', 3, datacont);
             }
             ut.pintarLine('H', 40);
+            System.out.println("Neto Total:S/."+ (Math.round(netoTotalX*100.0)/100.0)+" | "+"IGV: S/."+(Math.round(igvX*100.0)/100.0)+" | "+
+            "Monto total: S/."+(Math.round(preciototalX*100.0)/100.0));
+            ut.pintarLine('H', 40);
+
 
         } catch (Exception e) {      }
     }
