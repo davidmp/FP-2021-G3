@@ -40,6 +40,7 @@ public class App {
         "\n2=Registro Producto"+
         "\n21=Reporte Producto"+
         "\n3=Registro Usuario"+
+        "\n31=Eliminar Usuario"+
         "\n4=Registro de Ventas"+
         "\n5=Reporte de Ventas entre rango de fechas"+
         "\n0=Salir del Programa"
@@ -60,6 +61,7 @@ public class App {
                 case 2: proDao=new ProductoDao(); proDao.registrarProducto(); break;
                 case 21: proDao=new ProductoDao(); proDao.reporteProductosT(); break;
                 case 3:uDao=new UsuarioDao(); uDao.registarUsuario(); break;
+                case 31:uDao=new UsuarioDao(); uDao.eliminarUsuario(); break;
                 case 4: venDao=new VentaDao(); venDao.registroVentaGeneral();  break;
                 case 5: venDao=new VentaDao(); venDao.reporteVentasPorFechas();  break;
                 default: System.out.println("Opcion no existe!"); break;    

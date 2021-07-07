@@ -45,6 +45,16 @@ public class UsuarioDao extends AppCrud{
         return false;
     }
 
+    public boolean eliminarUsuario() {
+        ut.clearConsole();
+        lar=new LeerArchivo("Usuario.txt");
+        imprimirLista(listarContenido(lar));
+        lar=new LeerArchivo("Usuario.txt");
+        String idU=lte.leer("", "Ingrese el Id del usuario que desea eliminar:");
+        eliminarRegistros(lar, 0, idU);
+        return false;
+    }    
+
     public boolean validarExisteUser(String user) {
         lar=new LeerArchivo("Usuario.txt");
         Object[][] datax=buscarContenido(lar, 1, user);    
