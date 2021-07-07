@@ -144,12 +144,13 @@ public class VentaDao extends AppCrud{
             ut.pintarLine('H', 40);        
          
             System.out.println(color.render("@|red Neto Total:S/. |@ @|green "+(Math.round(netoTotalX*100.0)/100.0)+
-            "|@ | @|red IGV: S/.|@ @|green "+(Math.round(igvX*100.0)/100.0)+"|@  | @|red Monto total: S/. |@ @|green "+(Math.round(preciototalX*100.0)/100.0)+"|@"));
+            "|@ | @|red IGV: S/.|@ @|green "+(Math.round(igvX*100.0)/100.0)+"|@  | @|red Monto total: S/. |@ @|green "+
+            (Math.round(preciototalX*100.0)/100.0)+"|@"));
             
             ut.pintarLine('H', 40);
             
             
-            //System.out.println( color.fg(RED).a("Hello").fg(GREEN).a(" World").reset() );
+            //System.out.println( color.bg(GREEN).a("Hello").fg(GREEN).a(" World").reset() );
 
             //System.out.println(color.render("@|red Hello"+igvX+" |@ @|green World|@") );
 

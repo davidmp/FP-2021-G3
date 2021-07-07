@@ -11,11 +11,16 @@ import pe.edu.upeu.modelo.CategoriaTO;
 import pe.edu.upeu.modelo.ProductoTO;
 import pe.edu.upeu.util.LeerTeclado;
 import pe.edu.upeu.util.UtilsX;
+import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
+import static org.fusesource.jansi.Ansi.Color.*;
 /**
  * Hello world!
  *
  */
 public class App {
+
+   static Ansi color=new Ansi();
 
     public static void registrarCategoria(CategoriaTO categ) {
         System.out.println("--------Registro Categoria----------");
@@ -90,6 +95,8 @@ public class App {
 
     public static void main( String[] args ){
         //menuMain();
+        AnsiConsole.systemInstall();
+        System.out.println( color.bgBrightGreen().fg(RED).a("Hello").fg(BLACK).a(" World").reset() );
         validarAccesoSistema();
     }
 }
