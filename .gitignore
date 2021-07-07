@@ -1,6 +1,6 @@
 *.replit
 *.class
-*.jar
+#*.jar
 target
 **.vscode
 #**/*
