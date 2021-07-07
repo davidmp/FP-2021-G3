@@ -11,6 +11,10 @@ import pe.edu.upeu.util.LeerArchivo;
 import pe.edu.upeu.util.LeerTeclado;
 import pe.edu.upeu.util.UtilsX;
 
+import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
+import static org.fusesource.jansi.Ansi.Color.*;
+
 public class VentaDao extends AppCrud{
    LeerArchivo lar;
    LeerTeclado lte=new LeerTeclado();
@@ -20,6 +24,7 @@ public class VentaDao extends AppCrud{
    VentaDetalleTO vdTO;
    SimpleDateFormat formato=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
    SimpleDateFormat formatoFecha=new SimpleDateFormat("dd-MM-yyyy");    
+   Ansi color=new Ansi();
 
     public void registroVentaGeneral() {
         VentaTO vTO=crearVenta();
@@ -87,6 +92,7 @@ public class VentaDao extends AppCrud{
     }
 
     public void reporteVentasPorFechas() {
+        AnsiConsole.systemInstall();
         System.out.println("***************Reporte de Ventas por fechas*******************");
         String fechaInit=lte.leer("", "Ingrese fecha de inicio (dd-MM-yyyy):");
         String fechaFin=lte.leer("", "Ingrese fecha de Finalizacion (dd-MM-yyyy):");
@@ -135,10 +141,17 @@ public class VentaDao extends AppCrud{
                 objects[2]+","+objects[3]+","+objects[4]+","+objects[5];
                 ut.pintarTextHeadBody('B', 3, datacont);
             }
+            ut.pintarLine('H', 40);        
+         
+            System.out.println(color.render("@|red Neto Total:S/. |@ @|green "+(Math.round(netoTotalX*100.0)/100.0)+
+            "|@ | @|red IGV: S/.|@ @|green "+(Math.round(igvX*100.0)/100.0)+"|@  | @|red Monto total: S/. |@ @|green "+(Math.round(preciototalX*100.0)/100.0)+"|@"));
+            
             ut.pintarLine('H', 40);
-            System.out.println("Neto Total:S/."+ (Math.round(netoTotalX*100.0)/100.0)+" | "+"IGV: S/."+(Math.round(igvX*100.0)/100.0)+" | "+
-            "Monto total: S/."+(Math.round(preciototalX*100.0)/100.0));
-            ut.pintarLine('H', 40);
+            
+            
+            //System.out.println( color.fg(RED).a("Hello").fg(GREEN).a(" World").reset() );
+
+            //System.out.println(color.render("@|red Hello"+igvX+" |@ @|green World|@") );
 
 
         } catch (Exception e) {      }
