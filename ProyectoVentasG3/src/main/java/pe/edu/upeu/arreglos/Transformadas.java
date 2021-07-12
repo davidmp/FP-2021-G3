@@ -25,7 +25,6 @@ public class Transformadas {
         System.out.println("Cantidad positivos:"+cantPost);      
         System.out.println("Cantidad Negativos:"+cantNeg);      
     }
-
     public void transformada1(int dimension, int valorElem) {
         String[][] matriz=new String[dimension][dimension];
         for (int f = 0; f < matriz.length; f++) {
@@ -39,7 +38,6 @@ public class Transformadas {
         }
         imprimirMatriz(matriz);
     }
-
     public void transformada2(int dimension, int valorElem) {
         String[][] matriz=new String[dimension][dimension];
         for (int f = 0; f < matriz.length; f++) {
@@ -53,7 +51,6 @@ public class Transformadas {
         }
         imprimirMatriz(matriz);
     }    
-
     public void imprimirMatriz(Object[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
@@ -63,10 +60,39 @@ public class Transformadas {
         }
     }  
 
+
+    public void imprimirMatrizCadena(String[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                if(matriz[i][j]!=null && !matriz[i][j].equals("")){
+                    System.out.print(matriz[i][j]+"\t");
+                }else{
+                    System.out.print("\t");
+                }                
+            }
+            System.out.println("");
+        }
+    }  
+
+    public void transformada05(int dimen, int valInit) {
+        String[][] matriz=new String[dimen][dimen];// i =filas, j=columnas
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j <= i; j++) {
+                matriz[i][(dimen-1)-j]=""+valInit;
+                valInit++;
+            }
+        }
+        imprimirMatrizCadena(matriz);
+    }
+
+
+
     public static void main(String[] args) {
         Transformadas tObj=new Transformadas();
         tObj.contarCerosPostNegMatriz();
         tObj.transformada1(5, 0);
         tObj.transformada2(5,0);
+        System.out.println("");
+        tObj.transformada05(5, 0);
     }
 }
